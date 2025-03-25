@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Acqua per Riso</title>
+    <link rel="stylesheet" href="riso.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calcola la Quantità di Acqua per il Riso</h1>
+        <form id="rice-form">
+            <label for="rice-type">Tipo di Riso:</label>
+            <select id="rice-type">
+                <option value="bianco">Riso Bianco</option>
+                <option value="basmati">Riso Basmati</option>
+                <option value="integrale">Riso Integrale</option>
+            </select>
+
+            <label for="rice-weight">Peso del Riso (in grammi):</label>
+            <input type="number" id="rice-weight" placeholder="Inserisci il peso del riso" required>
+
+            <button type="submit">Calcola</button>
+        </form>
+
+        <div id="result" class="result">
+            <h2>Risultato:</h2>
+            <p id="water-amount"></p>
+        </div>
+    </div>
+
+    <script src="riso.js"></script>
+</body>
+</html>
+
+
