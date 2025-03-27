@@ -57,9 +57,10 @@ button:hover {
 
 .result {
     margin-top: 20px;
-    display: none;
+    display: block;
 }
 
 .result h2 {
     color: #4CAF50;
 }
+
