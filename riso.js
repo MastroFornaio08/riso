@@ -1,40 +1,22 @@
-document.getElementById('rice-form').addEventListener('submit', function(event) {
+document.getElementById("rice-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Ottieni i valori dal form
-    const riceType = document.getElementById('rice-type').value;
-    const riceWeight = parseFloat(document.getElementById('rice-weight').value);
+    let riceType = document.getElementById("rice-type").value;
+    let riceWeight = parseFloat(document.getElementById("rice-weight").value);
+    let waterRatio;
 
-    // Verifica se il peso è valido
-    if (isNaN(riceWeight) || riceWeight <= 0) {
-        alert("Per favore inserisci un peso valido.");
-        return;
+    if (riceType === "bianco") {
+        waterRatio = 1.25;
+    } else if (riceType === "basmati") {
+        waterRatio = 1.8;
+    } else if (riceType === "integrale") {
+        waterRatio = 2.5;
     }
 
-    // Definisci la quantità di acqua in base al tipo di riso
-    let waterAmount;
+    let waterAmount = riceWeight * waterRatio / 100; // Convertiamo grammi di riso in ml di acqua
 
-    switch (riceType) {
-        case 'bianco':
-            waterAmount = riceWeight * 2;  // 1 parte di riso per 2 di acqua
-            break;
-        case 'basmati':
-            waterAmount = riceWeight * 1.5;  // 1 parte di riso per 1.5 di acqua
-            break;
-        case 'integrale':
-            waterAmount = riceWeight * 2.5;  // 1 parte di riso per 2.5 di acqua
-            break;
-        default:
-            waterAmount = 0;
-            break;
-    }
+    document.getElementById("water-amount").textContent = `Devi usare circa ${waterAmount.toFixed(1)} ml di acqua.`;
 
-    // Mostra il risultato
-    const resultElement = document.getElementById('result');
-    const waterAmountElement = document.getElementById('water-amount');
-   
-    waterAmountElement.textContent = `Acqua necessaria: ${waterAmount} ml`;
-    resultElement.style.display = 'block';
     document.getElementById("cooking-instructions").textContent = 
         "Metti a fuoco medio e fai bollire. " + 
         "Una volta che bolle, chiudi con coperchio e cuoci per 10-12 minuti. " + 
