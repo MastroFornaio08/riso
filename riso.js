@@ -3,6 +3,13 @@ document.getElementById("rice-form").addEventListener("submit", function(event) 
 
     let riceType = document.getElementById("rice-type").value;
     let riceWeight = parseFloat(document.getElementById("rice-weight").value);
+
+    if (isNaN(riceWeight) || riceWeight <= 0) {
+        document.getElementById("water-amount").textContent = "Inserisci un peso valido.";
+        document.getElementById("cooking-instructions").textContent = "";
+        return;
+    }
+
     let waterRatio;
 
     if (riceType === "bianco") {
@@ -13,7 +20,7 @@ document.getElementById("rice-form").addEventListener("submit", function(event) 
         waterRatio = 2.5;
     }
 
-    let waterAmount = riceWeight * waterRatio / 100; // Convertiamo grammi di riso in ml di acqua
+    let waterAmount = riceWeight * waterRatio;
 
     document.getElementById("water-amount").textContent = `Devi usare circa ${waterAmount.toFixed(1)} ml di acqua.`;
 
