@@ -35,4 +35,8 @@ document.getElementById('rice-form').addEventListener('submit', function(event) 
    
     waterAmountElement.textContent = `Acqua necessaria: ${waterAmount} ml`;
     resultElement.style.display = 'block';
+    document.getElementById("cooking-instructions").textContent = 
+        "Metti a fuoco medio e fai bollire. " + 
+        "Una volta che bolle, chiudi con coperchio e cuoci per 10-12 minuti. " + 
+        "Spegni il fuoco e lascia riposare per 5 minuti prima di servire.";
 });
